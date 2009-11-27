@@ -1,0 +1,14 @@
+<?page title="zpark" id="pindex"?>
+
+<zk>
+	<style src="css/style.css" />
+	<div class="div_outer" id="div_outer">
+		<vbox width="800px" id="vbox1">
+			<window id="indexWin" title="zpark" border="normal" apply="ui.IndexComposer">
+				<div id="ilogin"></div>
+				<separator/>
+				<div id="icontent"></div>
+			</window>
+		</vbox>
+	</div>
+</zk>
