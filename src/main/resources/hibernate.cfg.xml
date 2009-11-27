@@ -6,7 +6,8 @@
     <session-factory name="sessionFactory">
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
         <property name="hibernate.connection.password">postgres</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1/zpark</property>        
+        <!-- <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1/zpark</property> -->
+        <property name="hibernate.connection.url">jdbc:postgresql://marioosh.net/zpark</property>        
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
