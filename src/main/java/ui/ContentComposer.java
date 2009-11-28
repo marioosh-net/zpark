@@ -12,9 +12,14 @@ public class ContentComposer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
+		reload();
 	}	
 	
 	public void onLoginLogout$div1() {
+		reload();
+	}
+	
+	private void reload() {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			System.out.println("logged 2");
@@ -23,6 +28,6 @@ public class ContentComposer extends GenericForwardComposer {
 		} else {
 			System.out.println("logged out 2");
 			div1.appendChild(new Label("Please login"));
-		}		
+		}				
 	}
 }

@@ -1,6 +1,6 @@
 <?page title="zpark" id="pcontent"?>
 <zk>
-	<window id="content" title="content" border="normal" apply="ui.ContentComposer">
+	<window id="content" border="normal" apply="ui.ContentComposer">
 		<div id="div1">Please login
 			<div id="div2"></div>
 		</div>

@@ -3,12 +3,23 @@
 <zk>
 	<style src="css/style.css" />
 	<div class="div_outer" id="div_outer">
-		<vbox width="800px" id="vbox1">
-			<window id="indexWin" title="zpark" border="normal" apply="ui.IndexComposer">
-				<div id="ilogin"></div>
-				<separator/>
-				<div id="icontent"></div>
-			</window>
-		</vbox>
+		<window id="indexWin" apply="ui.IndexComposer">
+			<tablelayout columns="2">
+				<tablechildren width="300px">
+					<panel title="Login" border="normal" collapsible="true">
+						<panelchildren>
+							<div id="ilogin"></div>
+						</panelchildren>
+					</panel>
+				</tablechildren>
+				<tablechildren width="700px">
+					<panel title="Content" border="normal" collapsible="true">
+						<panelchildren>
+							<div id="icontent"></div>
+						</panelchildren>
+					</panel>
+				</tablechildren>
+			</tablelayout>
+		</window>
 	</div>
 </zk>

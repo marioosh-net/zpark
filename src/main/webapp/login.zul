@@ -1,22 +1,21 @@
 <?page title="zpark" id="plogin"?>
 <zk>
-	<window title="Login" id="loginWin" border="normal" width="400px" apply="ui.LoginComposer">
+	<window id="loginWin"  apply="ui.LoginComposer">
 		<div id="loginDiv">
 			<grid>
 				<rows>
 					<row>
 						Name :
-						<textbox id="usertb" width="200px" value="" />
+						<textbox id="usertb" width="150px" value="" />
 					</row>
 					<row>
 						Password :
-						<textbox id="pwdtb" width="200px" type="password" />
+						<textbox id="pwdtb" width="150px" type="password" />
 					</row>
+					<row><separator/><button id="loginb" label="Login" /></row>
 				</rows>
 			</grid>
-			<hbox pack="center" width="100%">
-				<button id="loginb" label="Login" />
-			</hbox>
+	
 		</div>
 
 		<div id="userDiv">
