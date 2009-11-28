@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 @Table(name="user")
@@ -12,6 +13,7 @@ public class User2 implements Serializable {
 	
 	@Id
 	@GeneratedValue
+	@SequenceGenerator (name="user_id_seq")
 	int id;
 	String login;
 	String pass;
