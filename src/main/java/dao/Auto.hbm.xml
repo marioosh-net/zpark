@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="dao.Auto" table="auto">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="idClient" type="int">
+            <column name="id_client" not-null="true" />
+        </property>
+        <property name="type" type="java.lang.Integer">
+            <column name="type" />
+        </property>
+        <property name="nr" type="string">
+            <column name="nr" length="20" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

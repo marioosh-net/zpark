@@ -14,6 +14,7 @@ public class HibernateUtil {
 
 	static {
 		try {
+			System.out.println("sessionFactory....");
 			//sessionFactory = new Configuration().configure().buildSessionFactory();
 			// na adnotacjach
 			sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();

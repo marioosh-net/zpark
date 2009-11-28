@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta -->
+<hibernate-mapping>
+    <class name="dao.Time" table="time">
+        <composite-id name="id" class="dao.TimeId">
+            <key-property name="id" type="int">
+                <column name="id" />
+            </key-property>
+            <key-property name="idAuto" type="int">
+                <column name="id_auto" />
+            </key-property>
+            <key-property name="timeFrom" type="timestamp">
+                <column name="time_from" length="29" />
+            </key-property>
+            <key-property name="timeTo" type="timestamp">
+                <column name="time_to" length="29" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
