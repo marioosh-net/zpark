@@ -5,6 +5,12 @@
 	<div class="div_outer" id="div_outer">
 		<window id="indexWin" apply="ui.IndexComposer">
 			<tablelayout columns="2">
+				<tablechildren colspan="2">
+					<panel title="System rejestracji czasu parkowania">
+						<panelchildren>
+						</panelchildren>
+					</panel>
+				</tablechildren>
 				<tablechildren width="300px">
 					<panel title="Login" border="normal" collapsible="true">
 						<panelchildren>

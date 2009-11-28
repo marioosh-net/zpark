@@ -4,6 +4,7 @@
 		<tabs>
 			<tab label="Klienci" />
 			<tab label="Pojazdy" />
+			<tab label="Parkowanie" />
 		</tabs>
 		<tabpanels>
 			<tabpanel>
@@ -29,6 +30,9 @@
 						<row></row>
 					</rows>
 				</grid>
+			</tabpanel>
+			<tabpanel>
+			parkowania
 			</tabpanel>
 		</tabpanels>
 	</tabbox>
