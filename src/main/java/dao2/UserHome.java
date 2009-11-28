@@ -1,6 +1,6 @@
-package dao;
+package dao2;
 
-// Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta
+// Generated 2009-11-28 22:17:34 by Hibernate Tools 3.2.5.Beta
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -10,16 +10,18 @@ import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
+import dao.User2;
+
 /**
- * Home object for domain model class Auto.
- * @see dao.Auto
+ * Home object for domain model class User.
+ * @see dao2.User
  * @author Hibernate Tools
  */
-public class AutoHome {
+public class UserHome {
 
-	private static final Log log = LogFactory.getLog(AutoHome.class);
+	private static final Log log = LogFactory.getLog(UserHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	private final SessionFactory sessionFactory = hibernate.HibernateUtil.getSessionFactory();
 
 	protected SessionFactory getSessionFactory() {
 		try {
@@ -32,8 +34,8 @@ public class AutoHome {
 		}
 	}
 
-	public void persist(Auto transientInstance) {
-		log.debug("persisting Auto instance");
+	public void persist(User transientInstance) {
+		log.debug("persisting User instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +45,8 @@ public class AutoHome {
 		}
 	}
 
-	public void attachDirty(Auto instance) {
-		log.debug("attaching dirty Auto instance");
+	public void attachDirty(User instance) {
+		log.debug("attaching dirty User instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +56,8 @@ public class AutoHome {
 		}
 	}
 
-	public void attachClean(Auto instance) {
-		log.debug("attaching clean Auto instance");
+	public void attachClean(User instance) {
+		log.debug("attaching clean User instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -65,8 +67,8 @@ public class AutoHome {
 		}
 	}
 
-	public void delete(Auto persistentInstance) {
-		log.debug("deleting Auto instance");
+	public void delete(User persistentInstance) {
+		log.debug("deleting User instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,10 +78,10 @@ public class AutoHome {
 		}
 	}
 
-	public Auto merge(Auto detachedInstance) {
-		log.debug("merging Auto instance");
+	public User merge(User detachedInstance) {
+		log.debug("merging User instance");
 		try {
-			Auto result = (Auto) sessionFactory.getCurrentSession().merge(
+			User result = (User) sessionFactory.getCurrentSession().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -89,11 +91,11 @@ public class AutoHome {
 		}
 	}
 
-	public Auto findById(int id) {
-		log.debug("getting Auto instance with id: " + id);
+	public User findById(int id) {
+		log.debug("getting User instance with id: " + id);
 		try {
-			Auto instance = (Auto) sessionFactory.getCurrentSession().get(
-					"dao.Auto", id);
+			User instance = (User) sessionFactory.getCurrentSession().get(
+					"dao2.User", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -106,11 +108,11 @@ public class AutoHome {
 		}
 	}
 
-	public List findByExample(Auto instance) {
-		log.debug("finding Auto instance by example");
+	public List findByExample(User instance) {
+		log.debug("finding User instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession().createCriteria(
-					"dao.Auto").add(Example.create(instance)).list();
+					"dao2.User").add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -118,5 +120,18 @@ public class AutoHome {
 			log.error("find by example failed", re);
 			throw re;
 		}
+	}
+	
+	public boolean checkUser(User user) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session.beginTransaction();
+        List users = session.createQuery("from dao2.User where login = '"+user.getLogin()+"' and pass = '"+user.getPass()+"'").list();
+		session.getTransaction().commit();
+		session.close();        
+        if(users.isEmpty()) {
+        	return false;
+        } else {
+        	return true;
+        }
 	}
 }

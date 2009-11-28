@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta -->
+<!-- Generated 2009-11-28 22:17:34 by Hibernate Tools 3.2.5.Beta -->
 <hibernate-mapping>
-    <class name="dao.Client" table="client">
-        <id name="id" type="int">
-            <column name="id" />
+    <class name="dao2.Client" table="client" schema="public">
+        <id name="idClient" type="int">
+            <column name="id_client" />
             <generator class="assigned" />
         </id>
         <property name="surname" type="string">

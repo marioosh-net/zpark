@@ -1,8 +1,6 @@
-package dao;
+package dao2;
 
-// Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta
-
-import hibernate.HibernateUtil;
+// Generated 2009-11-28 22:17:34 by Hibernate Tools 3.2.5.Beta
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -13,21 +11,20 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class User.
- * @see dao.User
+ * Home object for domain model class Auto.
+ * @see dao2.Auto
  * @author Hibernate Tools
  */
-public class UserHome {
+public class AutoHome {
 
-	private static final Log log = LogFactory.getLog(UserHome.class);
+	private static final Log log = LogFactory.getLog(AutoHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	private final SessionFactory sessionFactory = hibernate.HibernateUtil.getSessionFactory();
 
 	protected SessionFactory getSessionFactory() {
 		try {
-			return HibernateUtil.getSessionFactory();
-//			return (SessionFactory) new InitialContext()
-	//				.lookup("SessionFactory");
+			return (SessionFactory) new InitialContext()
+					.lookup("SessionFactory");
 		} catch (Exception e) {
 			log.error("Could not locate SessionFactory in JNDI", e);
 			throw new IllegalStateException(
@@ -35,8 +32,8 @@ public class UserHome {
 		}
 	}
 
-	public void persist(User transientInstance) {
-		log.debug("persisting User instance");
+	public void persist(Auto transientInstance) {
+		log.debug("persisting Auto instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -46,8 +43,8 @@ public class UserHome {
 		}
 	}
 
-	public void attachDirty(User instance) {
-		log.debug("attaching dirty User instance");
+	public void attachDirty(Auto instance) {
+		log.debug("attaching dirty Auto instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -57,8 +54,8 @@ public class UserHome {
 		}
 	}
 
-	public void attachClean(User instance) {
-		log.debug("attaching clean User instance");
+	public void attachClean(Auto instance) {
+		log.debug("attaching clean Auto instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -68,8 +65,8 @@ public class UserHome {
 		}
 	}
 
-	public void delete(User persistentInstance) {
-		log.debug("deleting User instance");
+	public void delete(Auto persistentInstance) {
+		log.debug("deleting Auto instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -79,10 +76,10 @@ public class UserHome {
 		}
 	}
 
-	public User merge(User detachedInstance) {
-		log.debug("merging User instance");
+	public Auto merge(Auto detachedInstance) {
+		log.debug("merging Auto instance");
 		try {
-			User result = (User) sessionFactory.getCurrentSession().merge(
+			Auto result = (Auto) sessionFactory.getCurrentSession().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -92,11 +89,11 @@ public class UserHome {
 		}
 	}
 
-	public User findById(int id) {
-		log.debug("getting User instance with id: " + id);
+	public Auto findById(int id) {
+		log.debug("getting Auto instance with id: " + id);
 		try {
-			User instance = (User) sessionFactory.getCurrentSession().get(
-					"dao.User", id);
+			Auto instance = (Auto) sessionFactory.getCurrentSession().get(
+					"dao2.Auto", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -109,11 +106,11 @@ public class UserHome {
 		}
 	}
 
-	public List findByExample(User instance) {
-		log.debug("finding User instance by example");
+	public List findByExample(Auto instance) {
+		log.debug("finding Auto instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession().createCriteria(
-					"dao.User").add(Example.create(instance)).list();
+					"dao2.Auto").add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;
@@ -122,20 +119,4 @@ public class UserHome {
 			throw re;
 		}
 	}
-	
-	// moje
-	public boolean checkUser(User user) {
-		org.hibernate.Session session = sessionFactory.getCurrentSession();
-		session = sessionFactory.openSession();
-		session.beginTransaction();
-        List users = session.createQuery("from dao.User2 where login = '"+user.getLogin()+"' and pass = '"+user.getPass()+"'").list();
-		session.getTransaction().commit();
-		session.close();        
-        if(users.isEmpty()) {
-        	return false;
-        } else {
-        	return true;
-        }
-	}
-
 }

@@ -1,6 +1,6 @@
-package dao;
+package dao2;
 
-// Generated 2009-11-28 17:19:40 by Hibernate Tools 3.2.5.Beta
+// Generated 2009-11-28 22:17:34 by Hibernate Tools 3.2.5.Beta
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -11,15 +11,15 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
 /**
- * Home object for domain model class Client.
- * @see dao.Client
+ * Home object for domain model class Time.
+ * @see dao2.Time
  * @author Hibernate Tools
  */
-public class ClientHome {
+public class TimeHome {
 
-	private static final Log log = LogFactory.getLog(ClientHome.class);
+	private static final Log log = LogFactory.getLog(TimeHome.class);
 
-	private final SessionFactory sessionFactory = getSessionFactory();
+	private final SessionFactory sessionFactory = hibernate.HibernateUtil.getSessionFactory();
 
 	protected SessionFactory getSessionFactory() {
 		try {
@@ -32,8 +32,8 @@ public class ClientHome {
 		}
 	}
 
-	public void persist(Client transientInstance) {
-		log.debug("persisting Client instance");
+	public void persist(Time transientInstance) {
+		log.debug("persisting Time instance");
 		try {
 			sessionFactory.getCurrentSession().persist(transientInstance);
 			log.debug("persist successful");
@@ -43,8 +43,8 @@ public class ClientHome {
 		}
 	}
 
-	public void attachDirty(Client instance) {
-		log.debug("attaching dirty Client instance");
+	public void attachDirty(Time instance) {
+		log.debug("attaching dirty Time instance");
 		try {
 			sessionFactory.getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -54,8 +54,8 @@ public class ClientHome {
 		}
 	}
 
-	public void attachClean(Client instance) {
-		log.debug("attaching clean Client instance");
+	public void attachClean(Time instance) {
+		log.debug("attaching clean Time instance");
 		try {
 			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -65,8 +65,8 @@ public class ClientHome {
 		}
 	}
 
-	public void delete(Client persistentInstance) {
-		log.debug("deleting Client instance");
+	public void delete(Time persistentInstance) {
+		log.debug("deleting Time instance");
 		try {
 			sessionFactory.getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,10 +76,10 @@ public class ClientHome {
 		}
 	}
 
-	public Client merge(Client detachedInstance) {
-		log.debug("merging Client instance");
+	public Time merge(Time detachedInstance) {
+		log.debug("merging Time instance");
 		try {
-			Client result = (Client) sessionFactory.getCurrentSession().merge(
+			Time result = (Time) sessionFactory.getCurrentSession().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -89,11 +89,11 @@ public class ClientHome {
 		}
 	}
 
-	public Client findById(int id) {
-		log.debug("getting Client instance with id: " + id);
+	public Time findById(int id) {
+		log.debug("getting Time instance with id: " + id);
 		try {
-			Client instance = (Client) sessionFactory.getCurrentSession().get(
-					"dao.Client", id);
+			Time instance = (Time) sessionFactory.getCurrentSession().get(
+					"dao2.Time", id);
 			if (instance == null) {
 				log.debug("get successful, no instance found");
 			} else {
@@ -106,11 +106,11 @@ public class ClientHome {
 		}
 	}
 
-	public List findByExample(Client instance) {
-		log.debug("finding Client instance by example");
+	public List findByExample(Time instance) {
+		log.debug("finding Time instance by example");
 		try {
 			List results = sessionFactory.getCurrentSession().createCriteria(
-					"dao.Client").add(Example.create(instance)).list();
+					"dao2.Time").add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
 			return results;

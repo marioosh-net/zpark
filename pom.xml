@@ -79,6 +79,11 @@
     	<artifactId>postgresql</artifactId>
     	<version>8.4-701.jdbc4</version>
     </dependency>
+    <dependency>
+    	<groupId>org.apache.geronimo.specs</groupId>
+    	<artifactId>geronimo-ejb_3.0_spec</artifactId>
+    	<version>1.0.1</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>mv1</finalName>
