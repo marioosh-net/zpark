@@ -7,9 +7,9 @@ public class HibernateTest {
 	
 	public static void main(String[] args) {
 		try {
-			User u = new User("ala","pass");
+			User2 u = new User2("ala","pass");
 
-			if(new UserDAO().checkUser(u)) {
+			if(new User2DAO().checkUser(u)) {
 				System.out.println("OK");				
 			} else {
 				System.out.println("Not OK");				

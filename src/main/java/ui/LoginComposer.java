@@ -44,7 +44,7 @@ public class LoginComposer extends GenericForwardComposer {
 			return;
 		}
 		
-		if(!new dao.UserDAO().checkUser(new dao.User(user,pwd))) {
+		if(!new dao.User2DAO().checkUser(new dao.User2(user,pwd))) {
 			Messagebox.show("*Wrong password!", "Error", Messagebox.OK, Messagebox.EXCLAMATION);			
 			return;			
 		}

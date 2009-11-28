@@ -7,8 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tuser")
-public class User implements Serializable {
+@Table(name="user")
+public class User2 implements Serializable {
 	
 	@Id
 	@GeneratedValue
@@ -17,9 +17,9 @@ public class User implements Serializable {
 	String pass;
 	String role;
 	
-	public User() {}
+	public User2() {}
 	
-	public User(String login, String pass) {
+	public User2(String login, String pass) {
 		this.login = login;
 		this.pass = pass;
 	}

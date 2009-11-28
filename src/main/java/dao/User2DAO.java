@@ -8,21 +8,21 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class UserDAO {
+public class User2DAO {
 
 	private SessionFactory sessionFactory;
 	private Session session;
 
-	public UserDAO() {
+	public User2DAO() {
 		//read hibernate.cfg.xml and prepare hibernate for use
 		//sessionFactory = new Configuration().configure().buildSessionFactory();
 		sessionFactory = HibernateUtil.getSessionFactory();
 	}
 	
-	public boolean checkUser(User user) {
+	public boolean checkUser(User2 user) {
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-        List users = session.createQuery("from dao.User where login = '"+user.getLogin()+"' and pass = '"+user.getPass()+"'").list();
+        List users = session.createQuery("from dao.User2 where login = '"+user.getLogin()+"' and pass = '"+user.getPass()+"'").list();
 		session.getTransaction().commit();
 		session.close();        
         if(users.isEmpty()) {
@@ -35,17 +35,17 @@ public class UserDAO {
 	public List findAll() {
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-        List users = session.createQuery("from dao.User").list();
+        List users = session.createQuery("from dao.User2").list();
 		session.getTransaction().commit();
 		session.close();
 		return users;
 	}
 
-	public boolean delete(User user) {
+	public boolean delete(User2 user) {
 		return false;
 	}
 
-	public boolean insert(User user) {
+	public boolean insert(User2 user) {
 		// with transaction
 		try {
 			session = sessionFactory.openSession();
@@ -60,7 +60,7 @@ public class UserDAO {
 		}
 	}
 
-	public boolean insertNoTransaction(User user) {
+	public boolean insertNoTransaction(User2 user) {
 		try {
 			session = sessionFactory.openSession();
 			session.save(user); // insert
@@ -75,7 +75,7 @@ public class UserDAO {
 		return true;
 	}
 
-	public boolean update(User user) {
+	public boolean update(User2 user) {
 		return false;
 	}
 }
