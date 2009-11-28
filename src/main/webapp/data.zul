@@ -1,0 +1,35 @@
+<?page title="data" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<tabbox>
+		<tabs>
+			<tab label="Klienci" />
+			<tab label="Pojazdy" />
+		</tabs>
+		<tabpanels>
+			<tabpanel>
+				<grid>
+					<columns>
+						<column label="Nazwisko" />
+						<column label="Imię" />
+						<column label="Auto" />
+					</columns>
+					<rows>
+						<row></row>
+					</rows>
+				</grid>
+			</tabpanel>
+			<tabpanel>
+				<grid>
+					<columns>
+						<column label="Nr Rejestr." />
+						<column label="Marka" />
+						<column label="Rodzaj" />
+					</columns>
+					<rows>
+						<row></row>
+					</rows>
+				</grid>
+			</tabpanel>
+		</tabpanels>
+	</tabbox>
+</zk>
