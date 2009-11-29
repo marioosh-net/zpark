@@ -1,5 +1,4 @@
 <?page title="zpark" id="pcontent"?>
-<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
 <zk>
 	<window id="content" apply="ui.ContentComposer">
 	

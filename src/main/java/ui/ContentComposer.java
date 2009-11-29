@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Label;
+import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.Tabpanel;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.event.Event;
@@ -12,10 +14,12 @@ import dao2.*;
 
 public class ContentComposer extends GenericForwardComposer {
 	private Div div1;
+	//private Tabpanel tabClients;
 	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
 		reload();
+		//System.out.println(tabClients); // null
 	}	
 	
 	public void onLoginLogout$div1() {
@@ -28,26 +32,16 @@ public class ContentComposer extends GenericForwardComposer {
 			System.out.println("logged 2");
 			//div1.appendChild(new Label("logged"));
 			Executions.createComponents("data.zul", div1, null);
+			System.out.println("create data.zul");
 		} else {
 			System.out.println("logged out 2");
 			div1.appendChild(new Label("Please login"));
 		}				
 	}
 	
-	public List<Client> getAllClients() {
-		ClientHome c = new ClientHome();
-		return c.findAll();
+	/*
+	public void onCreate$tabClients() throws Exception {
+		Messagebox.show("create tab1");
 	}
-	
-	public List<Client> getAllAutos() {
-		//ClientHome c = new ClientHome();
-		//return c.findAll();
-		return null;
-	}
-	
-	public List<Client> getAllTimes() {
-		//ClientHome c = new ClientHome();
-		//return c.findAll();
-		return null;
-	}
+	*/
 }
