@@ -5,7 +5,10 @@ import java.util.List;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Grid;
+import org.zkoss.zul.ListModel;
+import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Messagebox;
+import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Tab;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
@@ -18,6 +21,7 @@ public class Tabs1Composer extends GenericForwardComposer {
 	private Tabpanel tabClients;
 	private Tab tab1, tab2, tab3;
 	private Grid grid_clients;
+	private Grid grid_autos;
 	
 	public void doAfterCompose(Component tabbox) throws Exception {
 		super.doAfterCompose(tabbox);
@@ -25,7 +29,11 @@ public class Tabs1Composer extends GenericForwardComposer {
 		System.out.println("Tabs1Composer...");
 		System.out.println(tabClients);
 		
-		//grid_clients.setModel(getAllClients());
+		// READ THIS
+		//http://www.zkoss.org/forum/listComment/6263/
+			
+		//grid_clients.setModel(new ListModelList(getAllClients()));
+		//grid_autos.setModel(new ListModelList(getAllAutos()));
 	}	
 	
 	public void onCreate$tabbox() throws Exception {
@@ -46,7 +54,7 @@ public class Tabs1Composer extends GenericForwardComposer {
 		ClientHome c = new ClientHome();
 		return c.findAll();
 	}
-	
+
 	public List<Client> getAllAutos() {
 		//ClientHome c = new ClientHome();
 		//return c.findAll();
