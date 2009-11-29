@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
+import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Grid;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
@@ -31,9 +32,13 @@ public class Tabs1Composer extends GenericForwardComposer {
 		
 		// READ THIS
 		//http://www.zkoss.org/forum/listComment/6263/
-			
-		//grid_clients.setModel(new ListModelList(getAllClients()));
-		//grid_autos.setModel(new ListModelList(getAllAutos()));
+
+		// TO JEST WAZNE
+		AnnotateDataBinder binder = new AnnotateDataBinder(page);
+		binder.loadAll();
+		
+		grid_clients.setModel(new ListModelList(getAllClients()));
+		grid_autos.setModel(new ListModelList(getAllAutos()));
 	}	
 	
 	public void onCreate$tabbox() throws Exception {
