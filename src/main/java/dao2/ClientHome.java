@@ -119,4 +119,15 @@ public class ClientHome {
 			throw re;
 		}
 	}
+	
+	public List findAll() {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        List clients = session.createQuery("from dao2.Client").list();
+		session.getTransaction().commit();
+		session.close();
+		return clients;
+	}
+
 }

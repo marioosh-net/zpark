@@ -1,5 +1,6 @@
 <?page title="zpark" id="pindex"?>
 
+
 <zk>
 	<style src="css/style.css" />
 	<div class="div_outer" id="div_outer">
@@ -13,14 +14,14 @@
 				</tablechildren>
 				<tablechildren width="300px">
 					<panel title="Login" border="normal" collapsible="true">
-						<panelchildren>
+						<panelchildren style="padding: 5px;">
 							<div id="ilogin"></div>
 						</panelchildren>
 					</panel>
 				</tablechildren>
 				<tablechildren width="700px">
 					<panel title="Content" border="normal" collapsible="true">
-						<panelchildren>
+						<panelchildren style="padding: 5px;">
 							<div id="icontent"></div>
 						</panelchildren>
 					</panel>

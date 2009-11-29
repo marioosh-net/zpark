@@ -1,6 +1,8 @@
 <?page title="zpark" id="pcontent"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
 <zk>
-	<window id="content" border="normal" apply="ui.ContentComposer">
+	<window id="content" apply="ui.ContentComposer">
+	
 		<div id="div1">Please login
 			<div id="div2"></div>
 		</div>

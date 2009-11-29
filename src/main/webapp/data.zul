@@ -1,38 +1,58 @@
 <?page title="data" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<tabbox>
-		<tabs>
+		<tabs id="tabs">
 			<tab label="Klienci" />
 			<tab label="Pojazdy" />
 			<tab label="Parkowanie" />
 		</tabs>
 		<tabpanels>
 			<tabpanel>
-				<grid>
+				<grid id="grid_clients" width="100%" height="400px" model="@{content$composer.allClients}"> 
 					<columns>
 						<column label="Nazwisko" />
 						<column label="Imię" />
-						<column label="Auto" />
+						<column label="Pesel" />
 					</columns>
 					<rows>
-						<row></row>
+						<row self="@{each='client'}" value="@{client}">
+						<label value="@{client.name}"/>
+						<label value="@{client.surname}"/>
+						<label value="@{client.pesel}"/>
+						</row>
 					</rows>
 				</grid>
 			</tabpanel>
 			<tabpanel>
-				<grid>
+				<grid id="grid_autos" width="100%" height="400px" model="@{content$composer.allAutos}">
+					<columns>
+						<column label="Rodzaj" />					
+						<column label="Nr Rejestr." />
+					</columns>
+					<rows>
+						<row self="@{each='auto'}" value="@{auto}">
+						<label value="@{auto.type}"/>
+						<label value="@{auto.nr}"/>
+						</row>
+					</rows>
+				</grid>
+			</tabpanel>
+			<tabpanel>
+				<grid id="grid_parks" width="100%" height="400px" model="@{content$composer.allTimes}">
 					<columns>
 						<column label="Nr Rejestr." />
-						<column label="Marka" />
-						<column label="Rodzaj" />
+						<column label="Czas start" />
+						<column label="Czas koniec" />
+						<column label="..."/>
 					</columns>
 					<rows>
-						<row></row>
+						<row self="@{each='time'}" value="@{time}">
+						<label value="@{time.nr}" />
+						<label value="@{time.timeStart}" />
+						<label value="@{time.timeEnd}" />
+						</row>
 					</rows>
-				</grid>
-			</tabpanel>
-			<tabpanel>
-			parkowania
+				</grid>			
 			</tabpanel>
 		</tabpanels>
 	</tabbox>
