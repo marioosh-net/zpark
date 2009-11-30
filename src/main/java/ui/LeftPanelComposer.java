@@ -17,6 +17,7 @@ import dao2.*;
 
 public class LeftPanelComposer extends GenericForwardComposer {
 	private Div div2;
+	private Button listing;
 	private Button newClient;
 	private Button newAuto;
 	private Button newTime;
@@ -41,25 +42,32 @@ public class LeftPanelComposer extends GenericForwardComposer {
 			//div2.appendChild(new Label("Please login"));
 		}				
 	}
-	
+
+	public void onClick$listing() {
+		System.out.println("listing button");
+		// wyslij eventa do ContentComposer'a		
+		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
+		Events.sendEvent(new Event("onListing", div1)); // reload content div1
+	}
+		
 	public void onClick$newClient() {
 		System.out.println("newClient button");
 		// wyslij eventa do ContentComposer'a		
 		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
-		Events.sendEvent(new Event("newClient", div1)); // reload content div1
+		Events.sendEvent(new Event("onNewClient", div1)); // reload content div1
 	}
 	
 	public void onClick$newAuto() {
 		System.out.println("newAuto button ");
 		// wyslij eventa do ContentComposer'a		
 		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
-		Events.sendEvent(new Event("newAuto", div1)); // reload content div1		
+		Events.sendEvent(new Event("onNewAuto", div1)); // reload content div1		
 	}
 
 	public void onClick$newTime() {
 		System.out.println("newTime button");
 		// wyslij eventa do ContentComposer'a
 		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");		
-		Events.sendEvent(new Event("newTime", div1)); // reload content div1		
+		Events.sendEvent(new Event("onNewTime", div1)); // reload content div1		
 	}	
 }

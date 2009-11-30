@@ -3,9 +3,12 @@ package ui;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
+import org.zkoss.zul.Div;
 import org.zkoss.zul.Grid;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModel;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Messagebox;
@@ -16,8 +19,8 @@ import org.zkoss.zul.Tabpanel;
 
 import dao2.*;
 
-
 public class Tabs1Composer extends GenericForwardComposer {
+	private Div div1;
 	private Tabbox tabbox;
 	private Tabpanel tabClients;
 	private Tab tab1, tab2, tab3;
@@ -25,8 +28,8 @@ public class Tabs1Composer extends GenericForwardComposer {
 	private Grid grid_autos;
 	private Grid grid_times;
 	
-	public void doAfterCompose(Component tabbox) throws Exception {
-		super.doAfterCompose(tabbox);
+	public void doAfterCompose(Component win) throws Exception {
+		super.doAfterCompose(win);
 		System.out.println(tabbox);
 		System.out.println("Tabs1Composer...");
 		System.out.println(tabClients);
@@ -37,7 +40,7 @@ public class Tabs1Composer extends GenericForwardComposer {
 
 		// TO JEST WAZNE
 		//http://www.zkoss.org/forum/listComment/6263/
-		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
+		AnnotateDataBinder binder = new AnnotateDataBinder(win);
 		binder.loadAll();		
 	}	
 	
@@ -76,5 +79,65 @@ public class Tabs1Composer extends GenericForwardComposer {
 		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
 		//copy UI components values to data bean properties in one method call.
 		binder.loadAll();		
+	}
+	
+	/*****/
+	
+	// przegladanie danych
+	public void onListing$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("data.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}
+	
+	// wprowadzamy do systemu nowego klienta
+	public void onNewClient$div1() {
+		System.out.println("CASDASDASDAS");
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("client.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}
+	
+	// wprowadzamy do systemu nowe auto
+	public void onNewAuto$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("auto.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}		
+
+	// parkujemy nowe auto
+	public void onNewTime$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("time.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}
+	
+	public void onLoginLogout$div1() {
+		reload();
+	}
+	
+	private void reload() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			System.out.println("logged 2");
+			//div1.appendChild(new Label("logged"));
+			Executions.createComponents("data.zul", div1, null);
+			System.out.println("create data.zul");
+		} else {
+			System.out.println("logged out 2");
+			div1.appendChild(new Label("Please login"));
+		}				
 	}
 }

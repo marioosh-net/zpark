@@ -12,6 +12,7 @@ public class IndexComposer extends GenericForwardComposer {
 	//private Div icontent;
 	private Div ilogin;
 	private Div ileftpanel;
+	private Div icontent;
 	
 	public void doAfterCompose(Component indexWin) throws Exception {
 		super.doAfterCompose(indexWin);
@@ -24,16 +25,24 @@ public class IndexComposer extends GenericForwardComposer {
 		// UWAGA mozna by to zrobic elegancko w composerze, ale trzeba by go miec dostepnego 
 		// w index.zul, a zrobilem tak ze jest dopiero includowany razem z leftpanel.zul
 		leftPanelInit();
+		contentInit();
 	}		
 	
 	public void leftPanelInit() {
 		if(session.getAttribute("user") != null) {
-			Div div2 = (Div)Path.getComponent("//pindex/indexWin/div2");
-			div2.getChildren().clear();
-			Executions.createComponents("leftpanel.zul",div2,null);
+			ileftpanel.getChildren().clear();
+			Executions.createComponents("leftpanel.zul",ileftpanel,null);
 		} else {
-			Div div2 = (Div)Path.getComponent("//pindex/indexWin/div2");
-			div2.getChildren().clear(); // wywal panel po wylogowaniu			
+			ileftpanel.getChildren().clear(); // wywal panel po wylogowaniu			
+		}
+	}
+	
+	public void contentInit() {
+		if(session.getAttribute("user") != null) {
+			icontent.getChildren().clear();
+			Executions.createComponents("content.zul",icontent,null);
+		} else {
+			icontent.getChildren().clear(); // wywal panel po wylogowaniu			
 		}
 	}
 }

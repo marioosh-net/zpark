@@ -55,12 +55,16 @@ public class LoginComposer extends GenericForwardComposer {
 
 		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
 		Div div2 = (Div)Path.getComponent("//pindex/indexWin/leftpanel/div2");
-		Events.sendEvent(new Event("onLoginLogout", div1)); // reload content div1
+		//Events.sendEvent(new Event("onLoginLogout", div1)); // reload content div1
 		//Events.sendEvent(new Event("onLoginLogout", div2)); // reload leftpanel
 		// zaladuj leftpanel razem z composerem
-		div2 = (Div)Path.getComponent("//pindex/indexWin/div2");
+		div2 = (Div)Path.getComponent("//pindex/indexWin/ileftpanel");
 		div2.getChildren().clear();
 		Executions.createComponents("leftpanel.zul",div2,null);		
+		
+		div1 = (Div)Path.getComponent("//pindex/indexWin/icontent");
+		div1.getChildren().clear();
+		Executions.createComponents("content.zul",div1,null);		
 	}
 	
 	public void onClick$logoutb() throws Exception {
@@ -71,10 +75,13 @@ public class LoginComposer extends GenericForwardComposer {
 		
 		Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
 		Div div2 = (Div)Path.getComponent("//pindex/indexWin/leftpanel/div2");
-		Events.sendEvent(new Event("onLoginLogout", div1)); // reload content div1
+		//Events.sendEvent(new Event("onLoginLogout", div1)); // reload content div1
 		//Events.sendEvent(new Event("onLoginLogout", div2)); // reload leftpanel
-		div2 = (Div)Path.getComponent("//pindex/indexWin/div2");
+		div2 = (Div)Path.getComponent("//pindex/indexWin/ileftpanel");
 		div2.getChildren().clear(); // wywal panel po wylogowaniu
+		
+		div1 = (Div)Path.getComponent("//pindex/indexWin/icontent");
+		div1.getChildren().clear();
 	}
 	
 	public void doInit() throws Exception {

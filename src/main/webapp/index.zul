@@ -23,9 +23,7 @@
 							</panelchildren>
 						</panel>
 						<separator height="5px" />
-						<div id="ileftpanel">
-							<div id="div2"/>							
-						</div>
+						<div id="ileftpanel"/>
 					</div>
 				</west>
 				<!-- Content -->
@@ -35,9 +33,11 @@
 						<panel title="Dane" border="normal" collapsible="true">
 							<panelchildren style="padding: 5px;">
 								<div id="icontent">
+								<!-- 
 									<window id="content" apply="ui.ContentComposer">
 										<div id="div1"/>
-									</window>								
+									</window>
+								 -->
 								</div>
 							</panelchildren>
 						</panel>
