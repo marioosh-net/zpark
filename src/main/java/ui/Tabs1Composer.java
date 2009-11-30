@@ -31,14 +31,14 @@ public class Tabs1Composer extends GenericForwardComposer {
 		System.out.println("Tabs1Composer...");
 		System.out.println(tabClients);
 		
+		//grid_clients.setModel(new ListModelList(getAllClients()));
+		//grid_autos.setModel(new ListModelList(getAllAutos()));
+		//grid_times.setModel(new ListModelList(getAllTimes()));
+
 		// TO JEST WAZNE
 		//http://www.zkoss.org/forum/listComment/6263/
 		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
-		binder.loadAll();
-		
-		grid_clients.setModel(new ListModelList(getAllClients()));
-		grid_autos.setModel(new ListModelList(getAllAutos()));
-		grid_times.setModel(new ListModelList(getAllTimes()));		
+		binder.loadAll();		
 	}	
 	
 	public void onCreate$tabbox() throws Exception {

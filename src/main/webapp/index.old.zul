@@ -1,0 +1,63 @@
+<?page title="zpark - tablelayout" id="pindex"?>
+<?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
+<zk>
+	<style src="css/style.css" />
+	<div class="div_outer" id="div_outer">
+		<window id="indexWin" apply="ui.IndexComposer">
+			<tablelayout columns="2">
+				<!-- only panels can be in tablechildren -->			
+				<!-- top panel -->
+				<tablechildren colspan="2">
+					<panel title="System rejestracji czasu parkowania" border="normal" >
+						<panelchildren style="padding: 5px;">
+							<div>Wersja: 0.01b</div>
+						</panelchildren>
+					</panel>
+				</tablechildren>
+				
+				<!-- left panel -->
+				<tablechildren width="300px">
+					<panel id="LeftContent1" title="Login" border="normal" collapsible="true">
+						<panelchildren style="padding: 5px;">
+							<div id="ilogin"></div>
+						</panelchildren>
+					</panel>
+				</tablechildren>
+				
+				<!-- right panel -->
+				<tablechildren width="700px" rowspan="4">
+					<panel title="Dane" border="normal" collapsible="true">
+						<panelchildren style="padding: 5px;">
+							<div id="icontent"></div>
+						</panelchildren>
+					</panel>
+				</tablechildren>
+
+				<!-- left panel 2 -->
+				<tablechildren>
+					<panel id="LeftContent2" title="Klient" border="normal" collapsible="true">
+						<panelchildren style="padding: 5px;">
+							<div id="icontent2">Nowy klient</div>
+						</panelchildren>
+					</panel>				
+				</tablechildren>
+				<!-- left panel 3 -->
+				<tablechildren>
+					<panel id="LeftContent3" title="Pojazd" border="normal" collapsible="true">
+						<panelchildren style="padding: 5px;">
+							<div id="icontent3">Nowy pojazd</div>
+						</panelchildren>
+					</panel>				
+				</tablechildren>
+				<!-- left panel 4 -->
+				<tablechildren>
+					<panel id="LeftContent4" title="Parkowanie" border="normal" collapsible="true">
+						<panelchildren style="padding: 5px;">
+							<div id="icontent4">...</div>
+						</panelchildren>
+					</panel>				
+				</tablechildren>				
+			</tablelayout>
+		</window>
+	</div>
+</zk>
