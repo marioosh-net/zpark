@@ -9,12 +9,14 @@ import org.zkoss.zul.Include;
 import org.zkoss.zul.Window;
 
 public class IndexComposer extends GenericForwardComposer {
-	private Div icontent;
+	//private Div icontent;
 	private Div ilogin;
+	private Div ileftpanel;
 	
 	public void doAfterCompose(Component indexWin) throws Exception {
 		super.doAfterCompose(indexWin);
-		Executions.createComponents("content.zul",icontent,null);		
+		//Executions.createComponents("content.zul",icontent,null);		
 		Executions.createComponents("login.zul",ilogin,null);
+		//Executions.createComponents("leftpanel.zul",ileftpanel,null);
 	}		
 }

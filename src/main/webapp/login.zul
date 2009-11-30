@@ -21,7 +21,7 @@
 		<div id="userDiv">
 			<hbox pack="center" align="center" width="100%">
 				<div width="100%">
-					Welcome :
+					Zalogowany :
 					<label id="userName" value="${user}" />
 				</div>
 				<button id="logoutb" label="Logout" />

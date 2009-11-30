@@ -39,9 +39,43 @@ public class ContentComposer extends GenericForwardComposer {
 		}				
 	}
 	
-	/*
-	public void onCreate$tabClients() throws Exception {
-		Messagebox.show("create tab1");
+	// przegladanie danych
+	public void listing$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("data.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
 	}
-	*/
+	
+	// wprowadzamy do systemu nowego klienta
+	public void newClient$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("client.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}
+	
+	// wprowadzamy do systemu nowe auto
+	public void newAuto$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("auto.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}		
+
+	// parkujemy nowe auto
+	public void newTime$div1() {
+		div1.getChildren().clear();
+		if(session.getAttribute("user") != null) {
+			Executions.createComponents("time.zul", div1, null);
+		} else {
+			div1.appendChild(new Label("Please login"));
+		}		
+	}	
 }

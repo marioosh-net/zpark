@@ -1,0 +1,6 @@
+<?page title="timePanel" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="timePanel" border="normal">
+Time Panel
+</window>
+</zk>

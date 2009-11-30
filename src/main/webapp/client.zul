@@ -1,0 +1,6 @@
+<?page title="clientPanel" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="clientPanel" border="normal">
+Client Panel
+</window>
+</zk>

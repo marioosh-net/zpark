@@ -1,0 +1,25 @@
+<?page title="leftuserpanel" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window apply="ui.LeftPanelComposer">
+	<!-- left panel 2 -->
+	<panel id="LeftContent2" title="Klient" border="normal" collapsible="true">
+		<panelchildren style="padding: 5px;">
+			<div><button id="newClient" label="Nowy klient"/></div>
+		</panelchildren>
+	</panel>
+	<separator height="5px" />
+	<!-- left panel 3 -->
+	<panel id="LeftContent3" title="Pojazd" border="normal" collapsible="true">
+		<panelchildren style="padding: 5px;">
+			<div><button id="newAuto" label="Nowy pojazd"/></div>
+		</panelchildren>
+	</panel>
+	<separator height="5px" />
+	<!-- left panel 4 -->
+	<panel id="LeftContent4" title="Parkowanie" border="normal" collapsible="true">
+		<panelchildren style="padding: 5px;">
+			<div><button id="newTime" label="Zaparkuj"/></div>
+		</panelchildren>
+	</panel>
+	</window>
+</zk>

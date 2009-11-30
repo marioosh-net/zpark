@@ -23,27 +23,8 @@
 							</panelchildren>
 						</panel>
 						<separator height="5px" />
-						<div>
-							<!-- left panel 2 -->
-							<panel id="LeftContent2" title="Klient" border="normal" collapsible="true">
-								<panelchildren style="padding: 5px;">
-									<div id="icontent2">Nowy klient</div>
-								</panelchildren>
-							</panel>
-							<separator height="5px" />
-							<!-- left panel 3 -->
-							<panel id="LeftContent3" title="Pojazd" border="normal" collapsible="true">
-								<panelchildren style="padding: 5px;">
-									<div id="icontent3">Nowy pojazd</div>
-								</panelchildren>
-							</panel>
-							<separator height="5px" />
-							<!-- left panel 4 -->
-							<panel id="LeftContent4" title="Parkowanie" border="normal" collapsible="true">
-								<panelchildren style="padding: 5px;">
-									<div id="icontent4">...</div>
-								</panelchildren>
-							</panel>
+						<div id="ileftpanel">
+							<div id="div2"/>							
 						</div>
 					</div>
 				</west>
@@ -53,7 +34,11 @@
 						<!-- right panel -->
 						<panel title="Dane" border="normal" collapsible="true">
 							<panelchildren style="padding: 5px;">
-								<div id="icontent"></div>
+								<div id="icontent">
+									<window id="content" apply="ui.ContentComposer">
+										<div id="div1"/>
+									</window>								
+								</div>
 							</panelchildren>
 						</panel>
 					</div>

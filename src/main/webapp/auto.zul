@@ -1,0 +1,6 @@
+<?page title="autoPanel" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="autoPanel" border="normal">
+Auto Panel
+</window>
+</zk>
