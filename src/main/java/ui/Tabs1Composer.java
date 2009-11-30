@@ -14,8 +14,8 @@ import org.zkoss.zul.Tab;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
 
-import dao2.Client;
-import dao2.ClientHome;
+import dao2.*;
+
 
 public class Tabs1Composer extends GenericForwardComposer {
 	private Tabbox tabbox;
@@ -23,6 +23,7 @@ public class Tabs1Composer extends GenericForwardComposer {
 	private Tab tab1, tab2, tab3;
 	private Grid grid_clients;
 	private Grid grid_autos;
+	private Grid grid_times;
 	
 	public void doAfterCompose(Component tabbox) throws Exception {
 		super.doAfterCompose(tabbox);
@@ -30,15 +31,14 @@ public class Tabs1Composer extends GenericForwardComposer {
 		System.out.println("Tabs1Composer...");
 		System.out.println(tabClients);
 		
-		// READ THIS
-		//http://www.zkoss.org/forum/listComment/6263/
-
 		// TO JEST WAZNE
-		AnnotateDataBinder binder = new AnnotateDataBinder(page);
+		//http://www.zkoss.org/forum/listComment/6263/
+		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
 		binder.loadAll();
 		
 		grid_clients.setModel(new ListModelList(getAllClients()));
 		grid_autos.setModel(new ListModelList(getAllAutos()));
+		grid_times.setModel(new ListModelList(getAllTimes()));		
 	}	
 	
 	public void onCreate$tabbox() throws Exception {
@@ -61,14 +61,20 @@ public class Tabs1Composer extends GenericForwardComposer {
 	}
 
 	public List<Client> getAllAutos() {
-		//ClientHome c = new ClientHome();
-		//return c.findAll();
-		return null;
+		System.out.println("getAllAutos();");		
+		AutoHome c = new AutoHome();
+		return c.findAll();
 	}
 	
 	public List<Client> getAllTimes() {
-		//ClientHome c = new ClientHome();
-		//return c.findAll();
-		return null;
-	}	
+		System.out.println("getAllTimes();");
+		TimeHome c = new TimeHome();
+		return c.findAll();
+	}
+	
+	public void updateTabContents() {
+		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
+		//copy UI components values to data bean properties in one method call.
+		binder.loadAll();		
+	}
 }

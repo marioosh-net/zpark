@@ -119,4 +119,14 @@ public class TimeHome {
 			throw re;
 		}
 	}
+	
+	public List findAll() {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        List times = session.createQuery("from dao2.Time").list();
+		session.getTransaction().commit();
+		session.close();
+		return times;
+	}
 }

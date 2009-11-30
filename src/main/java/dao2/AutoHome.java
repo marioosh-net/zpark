@@ -119,4 +119,14 @@ public class AutoHome {
 			throw re;
 		}
 	}
+
+	public List findAll() {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        List autos = session.createQuery("from dao2.Auto").list();
+		session.getTransaction().commit();
+		session.close();
+		return autos;
+	}
 }

@@ -39,18 +39,18 @@
 				</grid>
 			</tabpanel>
 			<tabpanel>
-				<grid id="grid_parks" width="100%" height="400px" model="@{tabbox$Tabs1Composer.allTimes}">
+				<grid id="grid_times" width="100%" height="400px" model="@{tabbox$Tabs1Composer.allTimes}">
 					<columns>
 						<column label="Nr Rejestr." />
 						<column label="Czas start" />
 						<column label="Czas koniec" />
-						<column label="..."/>
 					</columns>
 					<rows>
 						<row self="@{each='time'}" value="@{time}">
-						<label value="@{time.nr}" />
-						<label value="@{time.timeStart}" />
-						<label value="@{time.timeEnd}" />
+						<!-- <label value="@{time.nr}" />  -->
+						<label value="XXX XXX" />
+						<label value="@{time.timeFrom}" />
+						<label value="@{time.timeTo}" />
 						</row>
 					</rows>
 				</grid>			
