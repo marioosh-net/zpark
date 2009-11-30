@@ -11,12 +11,12 @@
 			<tabpanel id="tabClients">
 				<grid id="grid_clients" width="100%" height="400px" model="@{tabbox$Tabs1Composer.allClients}"> 
 					<columns>
-						<column label="Nazwisko" />
+						<column label="Nazwisko"/>
 						<column label="Imię" />
 						<column label="Pesel" />
 					</columns>
 					<rows>
-						<row self="@{each='client'}" value="@{client}">
+						<row self="@{each='client'}" value="@{client}" height="30px">
 						<label value="@{client.name}"/>
 						<label value="@{client.surname}"/>
 						<label value="@{client.pesel}"/>
@@ -31,7 +31,7 @@
 						<column label="Nr Rejestr." />
 					</columns>
 					<rows>
-						<row self="@{each='auto'}" value="@{auto}">
+						<row self="@{each='auto'}" value="@{auto}"  height="30px">
 						<label value="@{auto.type}"/>
 						<label value="@{auto.nr}"/>
 						</row>
@@ -46,7 +46,7 @@
 						<column label="Czas koniec" />
 					</columns>
 					<rows>
-						<row self="@{each='time'}" value="@{time}">
+						<row self="@{each='time'}" value="@{time}"  height="30px">
 						<!-- <label value="@{time.nr}" />  -->
 						<label value="XXX XXX" />
 						<label value="@{time.timeFrom}" />
