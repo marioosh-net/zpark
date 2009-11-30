@@ -23,6 +23,7 @@ public class LeftPanelComposer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
+		System.out.println("leftPanelComposer doAfterCompose");
 		//reload();
 	}	
 	
