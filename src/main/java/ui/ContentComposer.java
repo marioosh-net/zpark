@@ -20,7 +20,7 @@ import org.zkoss.zul.Window;
 
 import dao2.*;
 
-public class Tabs1Composer extends GenericForwardComposer {
+public class ContentComposer extends GenericForwardComposer {
 	private Window win;
 	private Div div1;
 	private Tabbox tabbox;
@@ -30,12 +30,12 @@ public class Tabs1Composer extends GenericForwardComposer {
 	private Grid grid_autos;
 	private Grid grid_times;
 	
+	AnnotateDataBinder binder;
+	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
-		win = (Window)win;
-		System.out.println(tabbox);
-		System.out.println("Tabs1Composer...");
-		System.out.println(tabClients);
+		this.win = (Window)win;
+		System.out.println("ContentComposer...");
 		
 		//grid_clients.setModel(new ListModelList(getAllClients()));
 		//grid_autos.setModel(new ListModelList(getAllAutos()));
@@ -45,8 +45,8 @@ public class Tabs1Composer extends GenericForwardComposer {
 		onListing$div1();
 		// TO JEST WAZNE - zaladuj dane z bindera
 		//http://www.zkoss.org/forum/listComment/6263/
-		AnnotateDataBinder binder = new AnnotateDataBinder(win);
-		binder.loadAll();		
+		//binder = new AnnotateDataBinder(win);
+		//binder.loadAll();		
 
 	}	
 	
@@ -94,9 +94,8 @@ public class Tabs1Composer extends GenericForwardComposer {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("data.zul", div1, null);
-			
-
-						
+			binder = new AnnotateDataBinder(win);
+			binder.loadAll();			
 		} else {
 			div1.appendChild(new Label("Please login"));
 		}		

@@ -44,10 +44,11 @@ public class LoginComposer extends GenericForwardComposer {
 			return;
 		}
 		
-		if(!new dao2.UserHome().checkUser(new dao2.User(0,user,pwd,null))) {
+/*		if(!new dao2.UserHome().checkUser(new dao2.User(0,user,pwd,null))) {
 			Messagebox.show("*Wrong password!", "Error", Messagebox.OK, Messagebox.EXCLAMATION);			
 			return;			
 		}
+*/
 		session.setAttribute("user",user);
 		loginDiv.setVisible(false);
 		userDiv.setVisible(true);

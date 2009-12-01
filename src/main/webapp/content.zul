@@ -1,6 +1,6 @@
 <?page title="zpark" id="pcontent"?>
 <zk>
-	<window id="content" apply="ui.Tabs1Composer">
+	<window id="content" apply="ui.ContentComposer">
 		<div id="div1"/>
 	</window>
 </zk>
