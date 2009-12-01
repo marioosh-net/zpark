@@ -3,6 +3,8 @@ import org.zkoss.zhtml.Messagebox;
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
 import org.zkoss.zk.ui.Path;
+import org.zkoss.zk.ui.event.Event;
+import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Include;
@@ -33,7 +35,9 @@ public class IndexComposer extends GenericForwardComposer {
 			ileftpanel.getChildren().clear();
 			Executions.createComponents("leftpanel.zul",ileftpanel,null);
 		} else {
-			ileftpanel.getChildren().clear(); // wywal panel po wylogowaniu			
+			if(!ileftpanel.getChildren().isEmpty()) {
+				ileftpanel.getChildren().clear(); // wywal panel po wylogowaniu
+			}
 		}
 	}
 	
@@ -41,8 +45,18 @@ public class IndexComposer extends GenericForwardComposer {
 		if(session.getAttribute("user") != null) {
 			icontent.getChildren().clear();
 			Executions.createComponents("content.zul",icontent,null);
+			
+			// a potem zaladuj do div1 data.zul
+			//Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
+			//Executions.createComponents("data.zul", div1, null);
+			
+			// sendEvent moge zrobic jedynie w obsludze zdarzenia
+			//Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
+			//Events.sendEvent(new Event("onListing", div1)); // reload content div1			
 		} else {
-			icontent.getChildren().clear(); // wywal panel po wylogowaniu			
+			if(!icontent.getChildren().isEmpty()) {
+				icontent.getChildren().clear(); // wywal panel po wylogowaniu
+			}
 		}
 	}
 }

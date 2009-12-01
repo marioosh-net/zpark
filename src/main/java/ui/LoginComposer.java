@@ -65,6 +65,10 @@ public class LoginComposer extends GenericForwardComposer {
 		div1 = (Div)Path.getComponent("//pindex/indexWin/icontent");
 		div1.getChildren().clear();
 		Executions.createComponents("content.zul",div1,null);		
+		
+		// wywolal po zalogwaniu listing
+		//div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
+		//Events.sendEvent(new Event("onListing", div1)); // reload content div1		
 	}
 	
 	public void onClick$logoutb() throws Exception {

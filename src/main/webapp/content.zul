@@ -1,64 +1,6 @@
 <?page title="zpark" id="pcontent"?>
 <zk>
 	<window id="content" apply="ui.Tabs1Composer">
-		<div id="div1">
-		<tabbox id="tabbox">
-			<tabs id="tabs">
-				<tab label="Klienci" id="tab1" />
-				<tab label="Pojazdy" id="tab2" />
-				<tab label="Parkowanie" id="tab3" />
-			</tabs>
-			<tabpanels id="contentTabs">
-				<!-- fulfill - when to create the child components -->
-				<tabpanel id="tabClients">
-					<grid id="grid_clients" width="100%" height="400px" model="@{content$Tabs1Composer.allClients}">
-						<columns>
-							<column label="Nazwisko" />
-							<column label="Imię" />
-							<column label="Pesel" />
-						</columns>
-						<rows>
-							<row self="@{each='client'}" value="@{client}" height="30px">
-								<label value="@{client.name}" />
-								<label value="@{client.surname}" />
-								<label value="@{client.pesel}" />
-							</row>
-						</rows>
-					</grid>
-				</tabpanel>
-				<tabpanel>
-					<grid id="grid_autos" width="100%" height="400px" model="@{content$Tabs1Composer.allAutos}">
-						<columns>
-							<column label="Rodzaj" />
-							<column label="Nr Rejestr." />
-						</columns>
-						<rows>
-							<row self="@{each='auto'}" value="@{auto}" height="30px">
-								<label value="@{auto.type}" />
-								<label value="@{auto.nr}" />
-							</row>
-						</rows>
-					</grid>
-				</tabpanel>
-				<tabpanel>
-					<grid id="grid_times" width="100%" height="400px" model="@{content$Tabs1Composer.allTimes}">
-						<columns>
-							<column label="Nr Rejestr." />
-							<column label="Czas start" />
-							<column label="Czas koniec" />
-						</columns>
-						<rows>
-							<row self="@{each='time'}" value="@{time}" height="30px">
-								<!-- <label value="@{time.nr}" />  -->
-								<label value="XXX XXX" />
-								<label value="@{time.timeFrom}" />
-								<label value="@{time.timeTo}" />
-							</row>
-						</rows>
-					</grid>
-				</tabpanel>
-			</tabpanels>
-		</tabbox>
-		</div>
+		<div id="div1"/>
 	</window>
 </zk>

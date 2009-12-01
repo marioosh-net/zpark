@@ -16,10 +16,12 @@ import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Tab;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
+import org.zkoss.zul.Window;
 
 import dao2.*;
 
 public class Tabs1Composer extends GenericForwardComposer {
+	private Window win;
 	private Div div1;
 	private Tabbox tabbox;
 	private Tabpanel tabClients;
@@ -30,6 +32,7 @@ public class Tabs1Composer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
+		win = (Window)win;
 		System.out.println(tabbox);
 		System.out.println("Tabs1Composer...");
 		System.out.println(tabClients);
@@ -38,10 +41,13 @@ public class Tabs1Composer extends GenericForwardComposer {
 		//grid_autos.setModel(new ListModelList(getAllAutos()));
 		//grid_times.setModel(new ListModelList(getAllTimes()));
 
-		// TO JEST WAZNE
+		// przelacz od razu na przegladanie
+		onListing$div1();
+		// TO JEST WAZNE - zaladuj dane z bindera
 		//http://www.zkoss.org/forum/listComment/6263/
 		AnnotateDataBinder binder = new AnnotateDataBinder(win);
 		binder.loadAll();		
+
 	}	
 	
 	public void onCreate$tabbox() throws Exception {
@@ -88,6 +94,9 @@ public class Tabs1Composer extends GenericForwardComposer {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("data.zul", div1, null);
+			
+
+						
 		} else {
 			div1.appendChild(new Label("Please login"));
 		}		
