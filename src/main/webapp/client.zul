@@ -1,6 +1,25 @@
 <?page title="clientPanel" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="clientPanel" border="normal">
-Client Panel
-</window>
+	<window title="clientPanel" border="normal" apply="ui.ClientComposer">
+		<grid>
+			<rows>
+				<row>
+					Nawisko:
+					<textbox id="clientName" width="150px" value="" />
+				</row>
+				<row>
+					Imię:
+					<textbox id="clientSurname" width="150px" value="" />
+				</row>
+				<row>
+					Pesel:
+					<textbox id="clientPesel" width="150px" value="" />
+				</row>				
+				<row>
+					<separator />
+					<button id="addButton" label="Dodaj" />
+				</row>
+			</rows>
+		</grid>
+	</window>
 </zk>

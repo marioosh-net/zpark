@@ -35,7 +35,7 @@ public class ContentComposer extends GenericForwardComposer {
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
 		this.win = (Window)win;
-		System.out.println("ContentComposer...");
+		System.out.println(this.getClass().toString());
 		
 		//grid_clients.setModel(new ListModelList(getAllClients()));
 		//grid_autos.setModel(new ListModelList(getAllAutos()));
@@ -43,11 +43,6 @@ public class ContentComposer extends GenericForwardComposer {
 
 		// przelacz od razu na przegladanie
 		onListing$div1();
-		// TO JEST WAZNE - zaladuj dane z bindera
-		//http://www.zkoss.org/forum/listComment/6263/
-		//binder = new AnnotateDataBinder(win);
-		//binder.loadAll();		
-
 	}	
 	
 	public void onCreate$tabbox() throws Exception {
@@ -94,16 +89,18 @@ public class ContentComposer extends GenericForwardComposer {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("data.zul", div1, null);
+			// TO JEST WAZNE - zaladuj dane z bindera
+			//http://www.zkoss.org/forum/listComment/6263/			
 			binder = new AnnotateDataBinder(win);
 			binder.loadAll();			
 		} else {
+			System.out.println("Please login...");
 			div1.appendChild(new Label("Please login"));
 		}		
 	}
 	
 	// wprowadzamy do systemu nowego klienta
 	public void onNewClient$div1() {
-		System.out.println("CASDASDASDAS");
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("client.zul", div1, null);

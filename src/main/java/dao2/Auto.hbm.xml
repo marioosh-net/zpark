@@ -6,7 +6,9 @@
     <class name="dao2.Auto" table="auto" schema="public">
         <id name="idAuto" type="int">
             <column name="id_auto" />
-            <generator class="assigned" />
+            <generator class="sequence">
+            	<param name="sequence">auto_id_seq</param>
+            </generator>            
         </id>
         <property name="idClient" type="int">
             <column name="id_client" not-null="true" />

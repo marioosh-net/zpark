@@ -6,7 +6,9 @@
     <class name="dao2.User" table="user" schema="public">
         <id name="idUser" type="int">
             <column name="id_user" />
-            <generator class="assigned" />
+            <generator class="sequence">
+            	<param name="sequence">user_id_seq</param>
+            </generator>            
         </id>
         <property name="login" type="string">
             <column name="login" length="50" not-null="true" />

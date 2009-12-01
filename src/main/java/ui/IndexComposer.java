@@ -8,6 +8,7 @@ import org.zkoss.zk.ui.event.Events;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Div;
 import org.zkoss.zul.Include;
+import org.zkoss.zul.Label;
 import org.zkoss.zul.Window;
 
 public class IndexComposer extends GenericForwardComposer {
@@ -18,6 +19,7 @@ public class IndexComposer extends GenericForwardComposer {
 	
 	public void doAfterCompose(Component indexWin) throws Exception {
 		super.doAfterCompose(indexWin);
+		System.out.println(this.getClass().toString());
 		//Executions.createComponents("content.zul",icontent,null);		
 		Executions.createComponents("login.zul",ilogin,null);
 		//Executions.createComponents("leftpanel.zul",ileftpanel,null);
@@ -56,6 +58,7 @@ public class IndexComposer extends GenericForwardComposer {
 		} else {
 			if(!icontent.getChildren().isEmpty()) {
 				icontent.getChildren().clear(); // wywal panel po wylogowaniu
+				icontent.appendChild(new Label("Proszê siê zalogowaæ"));
 			}
 		}
 	}

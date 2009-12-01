@@ -130,4 +130,29 @@ public class ClientHome {
 		return clients;
 	}
 
+	public boolean insert(Client c) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        session.save(c);
+		session.getTransaction().commit();
+		session.close();
+		return true;
+	}
+	
+	public boolean isExist(Client c) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();		
+		List clients = session
+			.createQuery("from dao2.Client as c where c.name = '" + c.getName() + "' and c.surname = '" + c.getSurname() + "' and c.pesel = '" + c.getPesel() +"'")
+			.list();
+		session.getTransaction().commit();
+		session.close();		
+		if(clients.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

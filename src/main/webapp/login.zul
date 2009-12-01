@@ -5,11 +5,11 @@
 			<grid>
 				<rows>
 					<row>
-						Name :
+						Login:
 						<textbox id="usertb" width="150px" value="" />
 					</row>
 					<row>
-						Password :
+						Hasło:
 						<textbox id="pwdtb" width="150px" type="password" />
 					</row>
 					<row><separator/><button id="loginb" label="Login" /></row>

@@ -1,6 +1,26 @@
 <?page title="autoPanel" contentType="text/html;charset=UTF-8"?>
 <zk>
 <window title="autoPanel" border="normal">
-Auto Panel
+		<grid>
+			<rows>
+				<row>
+					Właściciel:
+					<textbox id="clientId" width="150px" value="" disabled="true" />
+					<button id="b_clientSelect" label="Wybierz klienta" />
+				</row>
+				<row>
+					Typ:
+					<textbox id="autoType" width="150px" value="" />
+				</row>
+				<row>
+					Pesel:
+					<textbox id="autoNr" width="150px" value="" />
+				</row>				
+				<row>
+					<separator />
+					<button id="b_add" label="Dodaj" />
+				</row>
+			</rows>
+		</grid>
 </window>
 </zk>

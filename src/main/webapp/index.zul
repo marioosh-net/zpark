@@ -17,7 +17,7 @@
 				<west width="300px" border="0" flex="true" margins="0,0,5,0">
 					<div>
 						<!-- left panel -->
-						<panel id="LeftContent1" title="Login" border="normal" collapsible="true">
+						<panel id="LeftContent1" title="Logowanie" border="normal" collapsible="true">
 							<panelchildren style="padding: 5px;">
 								<div id="ilogin"/>
 							</panelchildren>

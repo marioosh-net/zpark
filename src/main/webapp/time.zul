@@ -1,6 +1,19 @@
 <?page title="timePanel" contentType="text/html;charset=UTF-8"?>
 <zk>
 <window title="timePanel" border="normal">
-Time Panel
+		<grid>
+			<rows>
+				<row>
+					Pojazd:
+					<textbox id="autoId" width="150px" value="" disabled="true" />
+					<button id="b_autoSelect" label="Wybierz pojazd" />
+					<button id="b_autoNew" label="Dodaj nowy pojazd" />
+				</row>
+				<row>
+					<separator />
+					<button id="b_park" label="Parkuj" />
+				</row>
+			</rows>
+		</grid>
 </window>
 </zk>

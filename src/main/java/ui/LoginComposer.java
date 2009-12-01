@@ -30,6 +30,7 @@ public class LoginComposer extends GenericForwardComposer {
 
 	public void doAfterCompose(Component loginWin) throws Exception {
 		super.doAfterCompose(loginWin);
+		System.out.println(this.getClass().toString());
 		// div nie jest spaceownerem!!!! nigdy !!! dlate w sciezce sie go nie uwzglednia przechodzac glebiej
 		// Path.getComponent leci po space-ownerach, na koncu podajemy obiekt, ktory juz nie musi byc space-ownerem
 		//System.out.println(Path.getComponent("//pindex/indexWin/content/div2"));
@@ -87,6 +88,7 @@ public class LoginComposer extends GenericForwardComposer {
 		
 		div1 = (Div)Path.getComponent("//pindex/indexWin/icontent");
 		div1.getChildren().clear();
+		div1.appendChild(new Label("Proszê siê zalogowaæ"));
 	}
 	
 	public void doInit() throws Exception {
