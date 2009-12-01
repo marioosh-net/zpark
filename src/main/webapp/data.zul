@@ -1,6 +1,6 @@
 <?page title="data" contentType="text/html;charset=UTF-8"?>
 <zk>
-	<tabbox id="tabbox">
+	<tabbox id="tabbox" apply="ui.DataComposer">
 		<tabs id="tabs">
 			<tab label="Klienci" id="tab1"/>
 			<tab label="Pojazdy" id="tab2"/>
@@ -9,7 +9,7 @@
 		<tabpanels id="contentTabs">
 			<!-- fulfill - when to create the child components -->
 			<tabpanel id="tabClients">
-				<grid id="grid_clients" width="100%" height="400px" model="@{content$ContentComposer.allClients}"> 
+				<grid id="grid_clients" width="100%" height="400px" model="@{tabbox$DataComposer.allClients}" mold="paging" pagingPosition="bottom" pageSize="10"> 
 					<columns>
 						<column label="Nazwisko"/>
 						<column label="Imię" />
@@ -25,7 +25,7 @@
 				</grid>
 			</tabpanel>
 			<tabpanel>
-				<grid id="grid_autos" width="100%" height="400px" model="@{content$ContentComposer.allAutos}">
+				<grid id="grid_autos" width="100%" height="400px" model="@{tabbox$DataComposer.allAutos}" mold="paging" pagingPosition="bottom" pageSize="10">
 					<columns>
 						<column label="Rodzaj" />					
 						<column label="Nr Rejestr." />
@@ -39,7 +39,7 @@
 				</grid>
 			</tabpanel>
 			<tabpanel>
-				<grid id="grid_times" width="100%" height="400px" model="@{content$ContentComposer.allTimes}">
+				<grid id="grid_times" width="100%" height="400px" model="@{tabbox$DataComposer.allTimes}" mold="paging" pagingPosition="bottom" pageSize="10">
 					<columns>
 						<column label="Nr Rejestr." />
 						<column label="Czas start" />

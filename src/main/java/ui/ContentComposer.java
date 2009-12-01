@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.zkoss.zk.ui.Component;
 import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Div;
@@ -21,78 +22,23 @@ import org.zkoss.zul.Window;
 import dao2.*;
 
 public class ContentComposer extends GenericForwardComposer {
-	private Window win;
 	private Div div1;
-	private Tabbox tabbox;
-	private Tabpanel tabClients;
-	private Tab tab1, tab2, tab3;
-	private Grid grid_clients;
-	private Grid grid_autos;
-	private Grid grid_times;
 	
-	AnnotateDataBinder binder;
+	//AnnotateDataBinder binder;
 	
 	public void doAfterCompose(Component win) throws Exception {
 		super.doAfterCompose(win);
-		this.win = (Window)win;
 		System.out.println(this.getClass().toString());
 		
-		//grid_clients.setModel(new ListModelList(getAllClients()));
-		//grid_autos.setModel(new ListModelList(getAllAutos()));
-		//grid_times.setModel(new ListModelList(getAllTimes()));
-
 		// przelacz od razu na przegladanie
 		onListing$div1();
 	}	
-	
-	public void onCreate$tabbox() throws Exception {
-		System.out.println("onCreate$tabbox");
-	}
-	
-	public void onClick$tab1() throws Exception {
-		System.out.println("onClick$tab1");
-	}
-	
-	// przy zmianie zakladki
-	public void onSelect$tabbox() throws Exception {
-		System.out.println("onSelect$tabbox_");
-	}
-	
-	public List<Client> getAllClients() {
-		System.out.println("getAllClients();");
-		ClientHome c = new ClientHome();
-		return c.findAll();
-	}
-
-	public List<Client> getAllAutos() {
-		System.out.println("getAllAutos();");		
-		AutoHome c = new AutoHome();
-		return c.findAll();
-	}
-	
-	public List<Client> getAllTimes() {
-		System.out.println("getAllTimes();");
-		TimeHome c = new TimeHome();
-		return c.findAll();
-	}
-	
-	public void updateTabContents() {
-		AnnotateDataBinder binder = new AnnotateDataBinder(tabbox);
-		//copy UI components values to data bean properties in one method call.
-		binder.loadAll();		
-	}
-	
-	/*****/
 	
 	// przegladanie danych
 	public void onListing$div1() {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("data.zul", div1, null);
-			// TO JEST WAZNE - zaladuj dane z bindera
-			//http://www.zkoss.org/forum/listComment/6263/			
-			binder = new AnnotateDataBinder(win);
-			binder.loadAll();			
 		} else {
 			System.out.println("Please login...");
 			div1.appendChild(new Label("Please login"));
