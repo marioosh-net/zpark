@@ -1,7 +1,9 @@
 <?page title="zpark - borderlayout" id="pindex"?>
 <?init class="org.zkoss.zkplus.databind.AnnotateDataBinderInit"?>
 <zk>
-	<style src="css/style.css" />
+
+	<style dynamic="true" src="/css/style.css" />
+
 	<div class="div_outer" id="div_outer">
 		<window id="indexWin" apply="ui.IndexComposer">
 			<borderlayout height="650px" style="background:#ffffff;">

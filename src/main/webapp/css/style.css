@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+/*@CHARSET "UTF-8";*/
 .div_outer {
 	margin: 5px;
 }
@@ -6,8 +6,6 @@
 .banner_title {
 	font-size: 15px;	
 }
-/*
-.z-panel-header {
-	background-color: blue;	
-} 
-*/
+
+ 
+

@@ -1,12 +1,14 @@
 <?page title="autoPanel" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="autoPanel" border="normal">
+	<window id="autowin" title="autoPanel" border="normal" apply="ui.AutoComposer">
 		<grid>
 			<rows>
 				<row>
 					Właściciel:
-					<textbox id="clientId" width="150px" value="" disabled="true" />
-					<button id="b_clientSelect" label="Wybierz klienta" />
+					<combobox id="combo" autodrop="true" model="@{autowin$AutoComposer.clients}">
+						<comboitem self="@{each=client}" label="@{client.name}" value="@{client.idClient}"/>
+					</combobox>
+					<label></label>
 				</row>
 				<row>
 					Typ:
@@ -15,12 +17,12 @@
 				<row>
 					Pesel:
 					<textbox id="autoNr" width="150px" value="" />
-				</row>				
+				</row>
 				<row>
 					<separator />
 					<button id="b_add" label="Dodaj" />
 				</row>
 			</rows>
 		</grid>
-</window>
+	</window>
 </zk>
