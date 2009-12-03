@@ -1,17 +1,17 @@
 <?page title="timePanel" contentType="text/html;charset=UTF-8"?>
 <zk>
-<window title="timePanel" border="normal">
+<window id="timewin" title="timePanel" border="normal" apply="ui.TimeComposer">
 		<grid>
 			<rows>
 				<row>
 					Pojazd:
-					<textbox id="autoId" width="150px" value="" disabled="true" />
-					<button id="b_autoSelect" label="Wybierz pojazd" />
-					<button id="b_autoNew" label="Dodaj nowy pojazd" />
+					<combobox id="combo" autodrop="true" model="@{timewin$TimeComposer.autos}"  selectedItem="@{timewin$TimeComposer.selected}" >
+						<comboitem self="@{each=auto}" label="@{auto.nr}" value="@{auto.idAuto}"/>
+					</combobox>					
 				</row>
 				<row>
 					<separator />
-					<button id="b_park" label="Parkuj" />
+					<button id="parkButton" label="Parkuj" />
 				</row>
 			</rows>
 		</grid>

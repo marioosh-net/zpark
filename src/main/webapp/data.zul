@@ -51,8 +51,7 @@
 					</columns>
 					<rows>
 						<row self="@{each='time'}" value="@{time}"  height="30px">
-						<!-- <label value="@{time.nr}" />  -->
-						<label value="XXX XXX" />
+						<label value="@{time.nr}" />
 						<label value="@{time.timeFrom}" />
 						<label value="@{time.timeTo}" />
 						</row>

@@ -120,6 +120,16 @@ public class AutoHome {
 			throw re;
 		}
 	}
+	
+	public List<Auto> findAll2() {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+		List autos = session.createQuery("from Auto").list();
+		session.getTransaction().commit();
+		session.close();
+		return autos;
+	}
 
 	public List<AutoClient> findAll() {
 		org.hibernate.Session session = sessionFactory.openSession();
@@ -127,15 +137,13 @@ public class AutoHome {
 		session.beginTransaction();
 		//List autos = session.createQuery("from Auto").list();
         //List autos = session.createQuery("select a.type as type, a.nr as nr, c.surname as cname from Auto as a, Client as c where c.id = a.idClient").list();
-		List autos = session.createQuery("from Auto as a, Client as c where c.id = a.idClient").list();
+		List autos = session.createQuery("from Auto as a, Client as c where c.idClient = a.idClient").list();
 		session.getTransaction().commit();
 		session.close();
 		
 		ArrayList al = new ArrayList();
 		for(Object o: autos) {
 			Object[] o2 = (Object[])o;
-			Auto a = (Auto)o2[0];
-			Client cl = (Client)o2[1];
 			AutoClient ac = new AutoClient((Auto)o2[0], (Client)o2[1]);
 			al.add(ac);
 		}

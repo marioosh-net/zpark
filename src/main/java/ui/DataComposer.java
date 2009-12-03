@@ -68,7 +68,7 @@ public class DataComposer extends GenericForwardComposer {
 		return c.findAll();
 	}
 
-	public List<Client> getAllTimes() {
+	public List<AutoTime> getAllTimes() {
 		System.out.println("getAllTimes();");
 		TimeHome c = new TimeHome();
 		return c.findAll();
