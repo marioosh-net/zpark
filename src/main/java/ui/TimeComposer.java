@@ -61,7 +61,7 @@ public class TimeComposer extends GenericForwardComposer {
 					Messagebox.show("DB error!");
 				}				
 			} else {
-				Messagebox.show("Auto ju¿ istnieje w bazie");				
+				Messagebox.show("Auto ju¿ jest zaparkowane");				
 			}
 		}
 	}	

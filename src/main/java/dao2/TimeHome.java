@@ -160,7 +160,7 @@ public class TimeHome {
 		session.beginTransaction();
 		List times = session.createQuery(
 				"from dao2.Time as t where t.idAuto = " + a.getIdAuto()
-						+ " and t.timeTo is not null").list();
+						+ " and t.timeTo is null").list();
 		session.getTransaction().commit();
 		session.close();
 		if (times.size() > 0) {
@@ -189,5 +189,9 @@ public class TimeHome {
 		} else {
 			return false;
 		}
+	}
+	
+	public boolean unpark(Auto auto) {
+		return true;
 	}
 }
