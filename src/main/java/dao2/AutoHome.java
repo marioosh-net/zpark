@@ -2,6 +2,7 @@ package dao2;
 
 // Generated 2009-11-28 22:17:34 by Hibernate Tools 3.2.5.Beta
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.naming.InitialContext;
 import org.apache.commons.logging.Log;
@@ -120,13 +121,53 @@ public class AutoHome {
 		}
 	}
 
-	public List findAll() {
+	public List<AutoClient> findAll() {
 		org.hibernate.Session session = sessionFactory.openSession();
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-        List autos = session.createQuery("from dao2.Auto").list();
+		//List autos = session.createQuery("from Auto").list();
+        //List autos = session.createQuery("select a.type as type, a.nr as nr, c.surname as cname from Auto as a, Client as c where c.id = a.idClient").list();
+		List autos = session.createQuery("from Auto as a, Client as c where c.id = a.idClient").list();
 		session.getTransaction().commit();
 		session.close();
-		return autos;
+		
+		ArrayList al = new ArrayList();
+		for(Object o: autos) {
+			Object[] o2 = (Object[])o;
+			Auto a = (Auto)o2[0];
+			Client cl = (Client)o2[1];
+			AutoClient ac = new AutoClient((Auto)o2[0], (Client)o2[1]);
+			al.add(ac);
+		}
+		return al;
+		
+		//return autos;
 	}
+	
+	public boolean insert(Auto a) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        session.save(a);
+		session.getTransaction().commit();
+		
+		session.close();
+		return true;
+	}
+	
+	public boolean isExist(Auto a) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();		
+		List clients = session
+			.createQuery("from dao2.Auto as a where a.nr = '" + a.getNr() + "' and a.idClient = " + a.getIdClient())
+			.list();
+		session.getTransaction().commit();
+		session.close();		
+		if(clients.size() > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}	
 }

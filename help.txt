@@ -1,0 +1,21 @@
+dostep do atrybutow beana w composerze
+@ - adnotacja do databindera
+$ - expressions language
+
+<window id="autowin" title="autoPanel" border="normal" apply="ui.AutoComposer">
+	<combobox id="combo" selectedItem="@{autowin$AutoComposer.selected}" >
+
+class Composer {
+
+	public Client getSelected() {
+		return selected;
+	}
+
+	public void setSelected(Client selected) {
+		this.selected = selected;
+	}	
+}
+
+
+	
+						

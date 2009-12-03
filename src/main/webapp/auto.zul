@@ -5,22 +5,21 @@
 			<rows>
 				<row>
 					Właściciel:
-					<combobox id="combo" autodrop="true" model="@{autowin$AutoComposer.clients}">
+					<combobox id="combo" autodrop="true" model="@{autowin$AutoComposer.clients}"  selectedItem="@{autowin$AutoComposer.selected}" >
 						<comboitem self="@{each=client}" label="@{client.name}" value="@{client.idClient}"/>
 					</combobox>
-					<label></label>
 				</row>
 				<row>
 					Typ:
 					<textbox id="autoType" width="150px" value="" />
 				</row>
 				<row>
-					Pesel:
+					Nr rej.:
 					<textbox id="autoNr" width="150px" value="" />
 				</row>
 				<row>
 					<separator />
-					<button id="b_add" label="Dodaj" />
+					<button id="addButton" label="Dodaj" />
 				</row>
 			</rows>
 		</grid>

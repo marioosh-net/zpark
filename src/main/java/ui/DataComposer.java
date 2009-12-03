@@ -1,5 +1,6 @@
 package ui;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
@@ -10,11 +11,7 @@ import org.zkoss.zul.Grid;
 import org.zkoss.zul.Tab;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
-
-import dao2.AutoHome;
-import dao2.Client;
-import dao2.ClientHome;
-import dao2.TimeHome;
+import dao2.*;
 /*
  * Komposer do tabelek w zakladkach
  */
@@ -65,7 +62,7 @@ public class DataComposer extends GenericForwardComposer {
 		return c.findAll();
 	}
 
-	public List<Client> getAllAutos() {
+	public List<AutoClient> getAllAutos() {
 		System.out.println("getAllAutos();");
 		AutoHome c = new AutoHome();
 		return c.findAll();
