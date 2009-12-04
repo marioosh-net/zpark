@@ -44,22 +44,7 @@ public class IndexComposer extends GenericForwardComposer {
 	}
 	
 	public void contentInit() {
-		if(session.getAttribute("user") != null) {
-			icontent.getChildren().clear();
-			Executions.createComponents("content.zul",icontent,null);
-			
-			// a potem zaladuj do div1 data.zul
-			//Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
-			//Executions.createComponents("data.zul", div1, null);
-			
-			// sendEvent moge zrobic jedynie w obsludze zdarzenia
-			//Div div1 = (Div)Path.getComponent("//pindex/indexWin/content/div1");
-			//Events.sendEvent(new Event("onListing", div1)); // reload content div1			
-		} else {
-			if(!icontent.getChildren().isEmpty()) {
-				icontent.getChildren().clear(); // wywal panel po wylogowaniu
-				icontent.appendChild(new Label("Proszê siê zalogowaæ"));
-			}
-		}
+		icontent.getChildren().clear();
+		Executions.createComponents("content.zul",icontent,null);
 	}
 }

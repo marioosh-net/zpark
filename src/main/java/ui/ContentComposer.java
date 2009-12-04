@@ -21,13 +21,7 @@ public class ContentComposer extends GenericForwardComposer {
 	
 	// przegladanie danych
 	public void onListing$div1() {
-		div1.getChildren().clear();
-		if(session.getAttribute("user") != null) {
-			Executions.createComponents("data.zul", div1, null);
-		} else {
-			System.out.println("Please login...");
-			div1.appendChild(new Label("Please login"));
-		}		
+		reload();
 	}
 	
 	// wprowadzamy do systemu nowego klienta
@@ -36,7 +30,7 @@ public class ContentComposer extends GenericForwardComposer {
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("client.zul", div1, null);
 		} else {
-			div1.appendChild(new Label("Please login"));
+			div1.appendChild(new Label("Proszê siê zalogowaæ"));
 		}		
 	}
 	
@@ -46,7 +40,7 @@ public class ContentComposer extends GenericForwardComposer {
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("auto.zul", div1, null);
 		} else {
-			div1.appendChild(new Label("Please login"));
+			div1.appendChild(new Label("Proszê siê zalogowaæ"));
 		}		
 	}		
 
@@ -56,7 +50,7 @@ public class ContentComposer extends GenericForwardComposer {
 		if(session.getAttribute("user") != null) {
 			Executions.createComponents("time.zul", div1, null);
 		} else {
-			div1.appendChild(new Label("Please login"));
+			div1.appendChild(new Label("Proszê siê zalogowaæ"));
 		}		
 	}
 	
@@ -67,13 +61,9 @@ public class ContentComposer extends GenericForwardComposer {
 	private void reload() {
 		div1.getChildren().clear();
 		if(session.getAttribute("user") != null) {
-			System.out.println("logged 2");
-			//div1.appendChild(new Label("logged"));
 			Executions.createComponents("data.zul", div1, null);
-			System.out.println("create data.zul");
 		} else {
-			System.out.println("logged out 2");
-			div1.appendChild(new Label("Please login"));
+			div1.appendChild(new Label("Proszê siê zalogowaæ"));
 		}				
 	}
 }
