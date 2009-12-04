@@ -21,8 +21,21 @@ public class AutoClient {
 	public Integer getType() {
 		return this.auto.getType();
 	}	
+
+	
+	public String getTypeString() {
+		if(auto.getType() == Auto.OSOB) {
+			return "osob.";//this.auto.getType();
+		} else {
+			return "ciê¿.";
+		}
+	}	
 	
 	public String getCSurname() {
 		return this.client.getSurname();
+	}
+	
+	public String getClientNameSurname() {
+		return this.client.getName() + " " + this.client.getSurname();
 	}
 }

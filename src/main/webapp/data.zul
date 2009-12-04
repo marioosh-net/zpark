@@ -29,15 +29,13 @@
 					<columns>
 						<column label="Rodzaj" />					
 						<column label="Nr Rejestr." />
-						<column label="Klient nazwisko" />
-						<column label="Klient imię" />
+						<column label="Właściciel" />
 					</columns>
 					<rows>
 						<row self="@{each='auto'}" value="@{auto}"  height="30px">
-						<label value="@{auto.type}"/>
+						<label value="@{auto.typeString}"/>
 						<label value="@{auto.nr}"/>
-						<label value="@{auto.cname}"/>
-						<label value="@{auto.cSurname}"/>
+						<label value="@{auto.clientNameSurname}"/>
 						</row>
 					</rows>
 				</grid>
