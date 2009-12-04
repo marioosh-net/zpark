@@ -18,4 +18,20 @@ class Composer {
 
 
 	
-						
+tak sie mozna odwolac do compsera dla elementu o id ID:
+   ID$composer. ....
+
+<tabbox id="tabbox" apply="ui.DataComposer">
+...
+	<row height="30px" onClick='tabbox$composer.test(event)' >
+
+class DataComposer {
+	public void test (Event evt) {}
+}
+	
+	
+model oznacza dane
+np.
+<grid model="listaOsob">
+
+listaOsob to ListModel (moze byc utworzony z normalnej listy java.util.List)

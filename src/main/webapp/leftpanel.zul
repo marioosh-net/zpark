@@ -1,17 +1,25 @@
 <?page title="leftuserpanel" contentType="text/html;charset=UTF-8"?>
 <zk>
 	<window apply="ui.LeftPanelComposer">
-	<!-- left panel 1 -->
-	<panel id="LeftContent1" title="Przeglądanie" border="normal" collapsible="true">
-		<panelchildren style="padding: 5px;">
-			<div><button id="listing" label="Przeglądanie"/></div>
-			<separator height="5px" />			
-			<div><button id="newClient" label="Nowy klient"/></div>
-			<separator height="5px" />			
-			<div><button id="newAuto" label="Nowy pojazd"/></div>
-			<separator height="5px" />			
-			<div><button id="newTime" label="Zaparkuj"/></div>									
-		</panelchildren>
-	</panel>
+		<!-- left panel 1 -->
+		<panel id="LeftContent1" title="Funkcje" border="normal" collapsible="true">
+			<panelchildren style="padding: 5px;">
+				<div>
+					<button id="listing" label="Przeglądanie" />
+				</div>
+				<separator height="5px" />
+				<div>
+					<button id="newClient" label="Nowy klient" />
+				</div>
+				<separator height="5px" />
+				<div>
+					<button id="newAuto" label="Nowy pojazd" />
+				</div>
+				<separator height="5px" />
+				<div>
+					<button id="newTime" label="Zaparkuj" />
+				</div>
+			</panelchildren>
+		</panel>
 	</window>
 </zk>
