@@ -5,13 +5,16 @@
 			<rows>
 				<row>
 					Właściciel:
-					<combobox id="combo" autodrop="true" model="@{autowin$AutoComposer.clients}"  selectedItem="@{autowin$AutoComposer.selected}" >
+					<combobox id="combo" autodrop="true" model="@{autowin$AutoComposer.clients}"  selectedItem="@{autowin$AutoComposer.selected}" readonly="true" >
 						<comboitem self="@{each=client}" label="@{client.name}" value="@{client.idClient}"/>
 					</combobox>
 				</row>
 				<row>
 					Typ:
-					<textbox id="autoType" width="150px" value="" />
+					<combobox id="autoType" readonly="true">
+						<comboitem label="osobowy" value="0"/>
+						<comboitem label="ciężarowy" value="1"/>
+					</combobox>
 				</row>
 				<row>
 					Nr rej.:

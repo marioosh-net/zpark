@@ -19,9 +19,11 @@ import dao2.*;
 public class AutoComposer extends GenericForwardComposer {
 
 	Client selected = null;
-	Textbox autoType;
+	int autoTypeInt;
+	//Textbox autoType;
 	Textbox autoNr;
 	Combobox combo;
+	Combobox autoType;
 
 	public void doAfterCompose(Component comp) throws Exception {
 		super.doAfterCompose(comp);
@@ -29,7 +31,9 @@ public class AutoComposer extends GenericForwardComposer {
 		//combo.setModel(new SimpleListModel(this.getAllClients()));
 		//combo.setModel(new SimpleListModel(new ClientHome().findAll()));
 		AnnotateDataBinder binder = new AnnotateDataBinder(comp);
-		binder.loadAll();		
+		binder.loadAll();
+		autoType.setSelectedIndex(0);
+		autoTypeInt = Integer.parseInt((String)autoType.getSelectedItem().getValue());
 	}
 	
 	public void onChanging$combo(Event event) {
@@ -46,7 +50,11 @@ public class AutoComposer extends GenericForwardComposer {
 	}
 	public void setSelected(Client selected) {
 		this.selected = selected;
-	}	
+	}
+	
+	public void onSelect$autoType(Event event) {
+		autoTypeInt = Integer.parseInt((String)autoType.getSelectedItem().getValue());
+	}
 	
 	public List getClients() {
 		System.out.println("getClients");
@@ -59,13 +67,14 @@ public class AutoComposer extends GenericForwardComposer {
 		Client client = selected;
 		String aType = autoType.getValue();
 		String aNr = autoNr.getValue();
-
+		
 		if(Strings.isBlank(aNr) || Strings.isBlank(aType) || selected == null){
 			Messagebox.show("Podaj wyszystkie dane");
 		} else {
 			Auto auto = new Auto();
 			auto.setNr(aNr);
-			auto.setType(0);
+			//auto.setType(Integer.parseInt(aType));
+			auto.setType(this.autoTypeInt);
 			auto.setIdClient(client.getIdClient());
 			
 			if(!new AutoHome().isExist(auto)) {

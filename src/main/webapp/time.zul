@@ -5,7 +5,7 @@
 			<rows>
 				<row>
 					Pojazd:
-					<combobox id="combo" autodrop="true" model="@{timewin$TimeComposer.autos}"  selectedItem="@{timewin$TimeComposer.selected}" >
+					<combobox id="combo" autodrop="true" model="@{timewin$TimeComposer.autos}"  selectedItem="@{timewin$TimeComposer.selected}" readonly="true" >
 						<comboitem self="@{each=auto}" label="@{auto.nr}" value="@{auto.idAuto}"/>
 					</combobox>					
 				</row>
