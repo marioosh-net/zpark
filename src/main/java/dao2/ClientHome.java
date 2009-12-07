@@ -139,13 +139,23 @@ public class ClientHome {
 		session.close();
 		return true;
 	}
-	
+
+	public boolean update(Client c) {
+		org.hibernate.Session session = sessionFactory.openSession();
+		session = sessionFactory.openSession();
+		session.beginTransaction();
+        session.update(c);
+		session.getTransaction().commit();
+		session.close();
+		return true;
+	}
+		
 	public boolean isExist(Client c) {
 		org.hibernate.Session session = sessionFactory.openSession();
 		session = sessionFactory.openSession();
 		session.beginTransaction();		
 		List clients = session
-			.createQuery("from dao2.Client as c where c.name = '" + c.getName() + "' and c.surname = '" + c.getSurname() + "' and c.pesel = '" + c.getPesel() +"'")
+			.createQuery("from dao2.Client as c where c.name = '" + c.getName() + "' and c.surname = '" + c.getSurname() + "' and c.pesel = '" + c.getPesel() +"' and c.idClient <> " + c.getIdClient())
 			.list();
 		session.getTransaction().commit();
 		session.close();		

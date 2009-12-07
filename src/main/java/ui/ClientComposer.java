@@ -45,6 +45,32 @@ public class ClientComposer extends GenericForwardComposer {
 		
 	}
 	
+	public void onClick$saveButton() throws Exception {
+		String cName = clientName.getValue();
+		String cSName = clientSurname.getValue();
+		String cPesel = clientPesel.getValue();
+
+		if(Strings.isBlank(cName) || Strings.isBlank(cSName) || Strings.isBlank(cPesel)){
+			Messagebox.show("Podaj wyszystkie dane");
+		} else {
+			Client client = new Client();
+			client.setName(cName);
+			client.setSurname(cSName);
+			client.setPesel(cPesel);
+			
+			if(!new ClientHome().isExist(client)) {
+				if(new ClientHome().update(client)) {
+					Messagebox.show("Dane zapisane");
+				} else {
+					Messagebox.show("DB error!");
+				}				
+			} else {
+				Messagebox.show("Klient ju¿ istnieje w bazie");				
+			}			
+		}
+					
+	}
+	
 	public void onClick$addButton() throws Exception {
 		System.out.println("onClick$addButton()");
 		
