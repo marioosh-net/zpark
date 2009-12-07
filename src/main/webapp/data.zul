@@ -9,6 +9,7 @@
 		<tabpanels id="contentTabs">
 			<!-- fulfill - when to create the child components -->
 			<tabpanel id="tabClients">
+ 				<!--
 				<grid id="grid_clients" width="100%" height="400px" 
 				model="@{tabbox$DataComposer.allClients}"
 				rowRenderer="${tabbox$composer.renderer}"				 
@@ -18,6 +19,22 @@
 						<column label="Imię" />
 						<column label="Pesel" />
 					</columns>
+ 				 -->
+				<grid id="grid_clients" width="100%" height="400px"
+				model="@{tabbox$DataComposer.allClients}" 
+				mold="paging" pagingPosition="bottom" pageSize="10">
+					<columns>
+						<column label="Nazwisko" />
+						<column label="Imię" />
+						<column label="Pesel" />
+					</columns>
+					<rows id="rows">
+						<row id="client" self="@{each='client'}" value="@{client}" height="30px">
+							<label value="@{client.name}" />
+							<label value="@{client.surname}" />
+							<label value="@{client.pesel}" />
+						</row>
+					</rows>
 				</grid>
 			</tabpanel>
 			<tabpanel>
@@ -27,8 +44,8 @@
 						<column label="Nr Rejestr." />
 						<column label="Właściciel" />
 					</columns>
-					<rows>
-						<row self="@{each='auto'}" value="@{auto}" height="30px">
+					<rows id="rows2">
+						<row id="auto" self="@{each='auto'}" value="@{auto}" height="30px">
 							<label value="@{auto.typeString}" />
 							<label value="@{auto.nr}" />
 							<label value="@{auto.clientNameSurname}" />
@@ -43,9 +60,9 @@
 						<column label="Czas start" />
 						<column label="Czas koniec" />
 					</columns>
-					<rows>
+					<rows id="rows3">
 						<!-- <row self="@{each='time'}" value="@{time}" height="30px" onClick='tabbox$composer.test(event)' >  -->
-						<row self="@{each='time'}" value="@{time}" height="30px" >
+						<row id="time" self="@{each='time'}" value="@{time}" height="30px" >
 							<label value="@{time.nr}" />
 							<label value="@{time.timeFrom}" />
 							<label value="@{time.timeTo}" />

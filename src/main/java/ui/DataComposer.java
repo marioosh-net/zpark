@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.zkoss.zk.ui.Component;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.ui.Path;
 import org.zkoss.zk.ui.event.Event;
 import org.zkoss.zk.ui.event.EventListener;
+import org.zkoss.zk.ui.event.ForwardEvent;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zkplus.databind.AnnotateDataBinder;
 import org.zkoss.zul.Grid;
@@ -18,6 +21,9 @@ import org.zkoss.zul.SimpleListModel;
 import org.zkoss.zul.Tab;
 import org.zkoss.zul.Tabbox;
 import org.zkoss.zul.Tabpanel;
+import org.zkoss.zul.Window;
+import org.zkoss.zk.ui.Desktop;
+
 import dao2.*;
 
 /*
@@ -31,7 +37,9 @@ public class DataComposer extends GenericForwardComposer {
 	private Grid grid_clients;
 	private Grid grid_autos;
 	private Grid grid_times;
-	private Row myrow;
+	private Row client;
+	private Row auto;
+	private Row time;
 
 	AnnotateDataBinder binder;
 
@@ -54,7 +62,7 @@ public class DataComposer extends GenericForwardComposer {
 		grid_clients.setRowRenderer(new ClientRowRenderer());
 		grid_clients.setModel(new SimpleListModel(getAllClients()));
 		*/
-		Rows rs = grid_clients.getRows();
+		/*Rows rs = grid_clients.getRows();
 		for (Row row : (List<Row>) rs.getChildren()) {
 			row.addEventListener("onClick", new EventListener() {
 				public void onEvent(Event event) throws Exception {
@@ -65,10 +73,10 @@ public class DataComposer extends GenericForwardComposer {
 					}
 				}
 			});
-		}
+		}*/
 
 	}
-	
+
 	public ClientRowRenderer getRenderer() {
 		return new ClientRowRenderer();
 	}
@@ -76,15 +84,38 @@ public class DataComposer extends GenericForwardComposer {
 	public void test(Event evt) throws Exception {
 		Messagebox.show("ssss:" + evt.getTarget());
 	}
-	
+
 	public void onCreate$tabbox() throws Exception {
 		System.out.println("onCreate$tabbox");
 	}
-	/*
-		public void onClick$myrow(Event event) throws Exception {
-			Messagebox.show("ROW: " + event.getTarget());
-		}
-	*/
+
+	// on row clicks
+	public void onClick$client(ForwardEvent event) throws Exception {
+		Row rowClicked = (Row) event.getOrigin().getTarget();
+		Client clientClicked = (Client) rowClicked.getValue();
+		System.out.println(clientClicked);
+		
+		//desktop.setAttribute("clientObject", clientClicked);
+		java.util.Map params = new java.util.HashMap();
+		params.put("clientObject", clientClicked);
+		Window win = (Window) Executions.createComponents("client.zul", null, params);
+		win.setClosable(true);
+		win.setId("Okienko");
+		win.doModal();
+	}
+
+	public void onClick$auto(ForwardEvent event) throws Exception {
+		Row rowClicked = (Row) event.getOrigin().getTarget();
+		AutoClient autoClicked = (AutoClient) rowClicked.getValue();
+		System.out.println(autoClicked);
+	}
+
+	public void onClick$time(ForwardEvent event) throws Exception {
+		Row rowClicked = (Row) event.getOrigin().getTarget();
+		AutoTime timeClicked = (AutoTime) rowClicked.getValue();
+		System.out.println(timeClicked);
+	}
+
 	public void onClick$tab1() throws Exception {
 		System.out.println("onClick$tab1");
 	}
@@ -98,6 +129,7 @@ public class DataComposer extends GenericForwardComposer {
 		System.out.println("Paging...");
 	}
 
+	// models
 	public List<Client> getAllClients() {
 		System.out.println("getAllClients();");
 		ClientHome c = new ClientHome();
@@ -115,6 +147,7 @@ public class DataComposer extends GenericForwardComposer {
 		TimeHome c = new TimeHome();
 		return c.findAll();
 	}
+
 }
 
 class ClientRowRenderer implements RowRenderer {
