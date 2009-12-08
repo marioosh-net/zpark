@@ -54,6 +54,7 @@ public class ClientComposer extends GenericForwardComposer {
 			Messagebox.show("Podaj wyszystkie dane");
 		} else {
 			Client client = new Client();
+			client.setIdClient(edited.getIdClient());
 			client.setName(cName);
 			client.setSurname(cSName);
 			client.setPesel(cPesel);

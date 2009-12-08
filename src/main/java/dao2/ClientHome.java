@@ -144,7 +144,11 @@ public class ClientHome {
 		org.hibernate.Session session = sessionFactory.openSession();
 		session = sessionFactory.openSession();
 		session.beginTransaction();
-        session.update(c);
+		Client c1 = (Client)session.get(Client.class, c.getIdClient());
+		c1.setName(c.getName());
+		c1.setSurname(c.getSurname());
+		c1.setPesel(c.getPesel());
+        session.update(c1);
 		session.getTransaction().commit();
 		session.close();
 		return true;
